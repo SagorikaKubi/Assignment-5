@@ -3,7 +3,6 @@
     grid-template-columns: repeat(4,1fr);
     grid-gap:30px;
 }
-
 .meal{
     border-radius: 20px;
     padding: 20px;
@@ -12,9 +11,9 @@
 }
 .meal-name{
     font-size: 20px;
-   
 }
 .meal-img{
+    border-radius: 5px;
     height: 200px;
     width: 200px;
 }

@@ -1,5 +1,5 @@
 //  meal items by first letter of meal
-const getMealItem = meal => {
+const getMealItems = meal => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${meal}`;
     fetch(url)
         .then(res => res.json())
@@ -10,9 +10,8 @@ const getMealItem = meal => {
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", () => {
     const inputMeal = document.getElementById("meal").value;
-    getMealItem(inputMeal);
+    getMealItems(inputMeal);
 })
-
 
 const displayMeals = meals => {
     const mealsDiv = document.getElementById("meals");
@@ -36,10 +35,9 @@ const displayMealRecipe = recipe => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`
     fetch(url)
         .then(res => res.json())
-        .then(data =>
-            renderMealInfo(data[0]));
-
+        .then(data => renderMealInfo(data[0]));
 }
+
 const renderMealInfo = meal => {
     const mealDiv = document.getElementById("meal-detail");
     mealDiv.innerHTML = `
