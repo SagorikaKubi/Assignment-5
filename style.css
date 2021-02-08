@@ -20,6 +20,10 @@
     height: 180px;
     width: 220px;
 }
+.meal-ingredients{
+    padding-left: 400px;
+    padding-bottom: 10px;
+}
 .ingredient-meal-name{
     padding-top: 10px;
     font-size: 18px;
