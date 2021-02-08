@@ -1,4 +1,5 @@
 #meals{
+    padding-top: 40px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap:30px; 
@@ -18,4 +19,11 @@
     border-radius: 5px;
     height: 180px;
     width: 220px;
+}
+.ingredient-meal-name{
+    padding-top: 10px;
+    font-size: 18px;
+}
+.ingredients{
+    color: indianred;
 }

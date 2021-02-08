@@ -1,4 +1,4 @@
-//  meal items by first letter of meal
+//  get all meals by first letter
 const getMealItems = meal => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${meal}`;
     fetch(url)
@@ -32,32 +32,28 @@ const displayMeals = meals => {
 }
 
 
-// meal recipe/details 
-const displayMealRecipe = recipe => {
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`
+//  get meal ingredients/details 
+const displayMealRecipe = name => {
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
     fetch(url)
         .then(res => res.json())
         .then(data => renderMealInfo(data.meals));
-    // console.log(data.meals));
 }
 
 const renderMealInfo = meals => {
-    // meals.forEach(meal => console.log(meal.strMeal));
-    const mealDiv = document.getElementById("meal-detail");
+    const mealDiv = document.getElementById("meal-details");
     meals.forEach(meal => {
         mealDiv.innerHTML = `
-        <img class= "meal-img" src="${meal.strMealThumb}" alt="Name"> 
-        <h3>${meal.strMeal}</h3>
-        <h5>Ingredients:</h6>
-        <li>${meal.strIngredient1}</li>
-        <li>${meal.strIngredient2}</li>
-        <li>${meal.strIngredient3}</li>
-        <li>${meal.strIngredient4}</li>
-        <li>${meal.strIngredient6}</li>
-        <li>${meal.strIngredient7}</li>
-        <li>${meal.strIngredient8}</li>
-        <li>${meal.strIngredient9}</li>
-        <li>${meal.strIngredient10}</li>
-        `
-    })
+    <img class= "meal-img" src="${meal.strMealThumb}" alt="Name"> 
+    <h3 class="ingredient-meal-name">${meal.strMeal}</h3>
+    <h6 class ="ingredients">Ingredients:</h6>
+    <li>${meal.strIngredient1}</li>
+    <li>${meal.strIngredient2}</li>
+    <li>${meal.strIngredient3}</li>
+    <li>${meal.strIngredient4}</li>
+    <li>${meal.strIngredient6}</li>
+    <li>${meal.strIngredient7}</li>
+    <li>${meal.strIngredient8}</li>
+    `
+    });
 }
