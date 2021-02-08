@@ -49,6 +49,7 @@ const displayMealRecipe = name => {
 
 const renderMealInfo = meals => {
     const mealDetails = document.getElementById("meal-details");
+    mealDetails.innerHTML = "";
     meals.forEach(meal => {
         const ingredient = document.createElement("div");
         ingredient.innerHTML = `
