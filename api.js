@@ -53,7 +53,9 @@ const renderMealInfo = meals => {
     <li>${meal.strIngredient4}</li>
     <li>${meal.strIngredient6}</li>
     <li>${meal.strIngredient7}</li>
-    <li>${meal.strIngredient8}</li>
+    <li>${meal.strIngredient9}</li>
+    <li>${meal.strIngredient9}</li>
+    <li>${meal.strIngredient10}</li>
     `
     });
 }
