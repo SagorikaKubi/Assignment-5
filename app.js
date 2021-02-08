@@ -28,7 +28,7 @@ const displayMeals = meals => {
         const mealDiv = document.createElement("div");
         mealDiv.className = "meal";
         const mealInfo = ` 
-            <div onclick="displayMealRecipe('${meal}')">
+            <div onclick="displayMealDetails('${meal}')">
             <img class= "meal-img" src="${mealPic}" alt="Name"> 
             <h3 class ="meal-name">${meal}</h3>
            </div>
@@ -40,19 +40,19 @@ const displayMeals = meals => {
 
 
 //  get meal ingredients/details 
-const displayMealRecipe = name => {
+const displayMealDetails = name => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
     fetch(url)
         .then(res => res.json())
-        .then(data => renderMealInfo(data.meals));
+        .then(data => getIngredients(data.meals));
 }
 
-const renderMealInfo = meals => {
+const getIngredients = meals => {
     const mealDetails = document.getElementById("meal-details");
     mealDetails.innerHTML = "";
     meals.forEach(meal => {
-        const ingredient = document.createElement("div");
-        ingredient.innerHTML = `
+        const ingredients = document.createElement("div");
+        ingredients.innerHTML = `
             <img class= "meal-img" src="${meal.strMealThumb}" alt="Name"> 
             <h3 class="ingredient-meal-name">${meal.strMeal}</h3>
             <h6 class ="ingredients">Ingredients:</h6>
@@ -66,7 +66,7 @@ const renderMealInfo = meals => {
             <li>${meal.strIngredient9}</li>
             <li>${meal.strIngredient10}</li>
            `
-        mealDetails.appendChild(ingredient);
+        mealDetails.appendChild(ingredients);
     });
 }
 
