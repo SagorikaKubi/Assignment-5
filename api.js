@@ -3,8 +3,7 @@ const getMealItems = meal => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${meal}`;
     fetch(url)
         .then(res => res.json())
-        .then(data =>
-            displayMeals(data.meals));
+        .then(data => displayMeals(data.meals))
 }
 
 const searchButton = document.getElementById("search-button");
@@ -15,17 +14,18 @@ searchButton.addEventListener("click", () => {
 
 const displayMeals = meals => {
     let mealsDiv = document.getElementById("meals");
+    mealsDiv.innerHTML = "";
     for (let i = 0; i < meals.length; i++) {
         const meal = meals[i].strMeal;
         const mealPic = meals[i].strMealThumb;
         const mealDiv = document.createElement("div");
         mealDiv.className = "meal";
         const mealInfo = ` 
-        <div onclick="displayMealRecipe('${meal}')">
-        <img class= "meal-img" src="${mealPic}" alt="Name"> 
-        <h3 class ="meal-name">${meal}</h3>
-       </div>
-        `
+            <div onclick="displayMealRecipe('${meal}')">
+            <img class= "meal-img" src="${mealPic}" alt="Name"> 
+            <h3 class ="meal-name">${meal}</h3>
+           </div>
+            `
         mealDiv.innerHTML = mealInfo;
         mealsDiv.appendChild(mealDiv);
     }

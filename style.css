@@ -27,3 +27,7 @@
 .ingredients{
     color: indianred;
 }
+.error-text{
+    text-align: center;
+    color: rgb(197, 77, 77);
+}
